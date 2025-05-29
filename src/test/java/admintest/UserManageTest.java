@@ -22,4 +22,18 @@ public class UserManageTest extends BaseTest {
         
     }
 
+    @Test
+    public void searchUserByUsername() {
+        String username = "Admin";
+        //var userManagementMenuPage = loginPage.clickUserManagementMenu().clickSearchWithText(username);
+
+        // var userManagementMenuPage = loginPage.clickUserManagementMenu();
+        // userManagementMenuPage.clickOnUserRoleDropdown("Admin");
+        // WebElement searchButton = userManagementMenuPage.findElement(By.xpath("//div//button[text() = 'Search']"));
+        // searchButton.click();
+        // String actual = userManagementMenuPage.getTitle();
+        // String expected = "System Users";
+        // Assert.assertEquals(actual, expected, "Search by username did not return expected results.");
+    }
+
 }
