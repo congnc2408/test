@@ -49,7 +49,7 @@ public class BaseTest {
        
     }
 
-    @BeforeMethod
+    @BeforeTest
     public void loginBeforeTest(){
         driver.get(baseUrl);
         basePage.deLay(2);

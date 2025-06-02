@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.orangehrm.pages.AdminManage.UserManager.AdminPage;
+import com.orangehrm.pages.AdminManage.UserManager.UserPage;
 
 import base.BaseTest;
 
@@ -12,8 +14,8 @@ import base.BaseTest;
 public class UserManageTest extends BaseTest {
    // By userManagementMenu = By.xpath("//li//span[text() = 'Admin']");
     //By userTitle = By.xpath("//div/h5[Text() = 'System Users']");
-
-    @Test
+    AdminPage adminPage;
+    @Test(priority = 1)
     public void clickUserManagementMenu() {
         var userManagementMenuPage = loginPage.clickUserManagementMenu();
         String actual = userManagementMenuPage.getTitle();
@@ -25,15 +27,14 @@ public class UserManageTest extends BaseTest {
     @Test
     public void searchUserByUsername() {
         String username = "Admin";
-        //var userManagementMenuPage = loginPage.clickUserManagementMenu().clickSearchWithText(username);
-
-        // var userManagementMenuPage = loginPage.clickUserManagementMenu();
-        // userManagementMenuPage.clickOnUserRoleDropdown("Admin");
-        // WebElement searchButton = userManagementMenuPage.findElement(By.xpath("//div//button[text() = 'Search']"));
-        // searchButton.click();
-        // String actual = userManagementMenuPage.getTitle();
-        // String expected = "System Users";
-        // Assert.assertEquals(actual, expected, "Search by username did not return expected results.");
+        adminPage = new AdminPage();
+       // adminPage.setDriver(driver);
+      
+        adminPage.clickSearchWithText(username);
+        By mandaText = By.name("(1) Record Found");
+        String actual =  adminPage.findElement(mandaText).getText();
+        String expected = "(1) Record Found";
+        Assert.assertEquals(actual,expected, "Search result does not contain expected username.");
     }
 
 }
